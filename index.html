@@ -110,20 +110,45 @@
           <li class="nav-item"><a class="nav-link active" href="#section_introduction">General Reading</a>
             <ul class="nav flex-column">
               <li class="nav-item"><a class="nav-link" href="#section_introduction">Introduction</a></li>
-              <li class="nav-item"><a class="nav-link" href="#section_hedging_how_to">How to hedge against prices</a>
+              <li class="nav-item"><a class="nav-link" href="#section_hedging_how_to">How to Hedge Against Prices</a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="#section_hedging_what_are_options">What are options</a>
+              <li class="nav-item"><a class="nav-link" href="#section_hedging_what_are_options">What are Options</a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="#section_hedging_what_are_market_makers">What is a market
-                  maker</a></li>
+              <li class="nav-item"><a class="nav-link" href="#section_hedging_what_are_market_makers">What is a Market
+                  Maker?</a></li>
               <li class="nav-item"><a class="nav-link" href="#section_hedging_what_is_liquidity_pool">What is a
-                  liquidity pool</a></li>
+                  Liquidity Pool?</a></li>
+              <li class="nav-item"><a class="nav-link" href="#section_hedging_what_is_stronghold">How does stronghold
+                  work?</a></li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#section_token_general">Token</a>
             <ul class="nav flex-column">
               <li class="nav-item"><a class="nav-link" href="#section_token_general">General information</a></li>
               <li class="nav-item"><a class="nav-link" href="#section_token_tokenomics">Tokenomics</a></li>
+              <!--<li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Yield farming</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_footer">Trading platforms</a></li>-->
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#section_feeds_commodities">Price Feeds: Commodities</a>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#section_feeds_commodities_info">General information</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#section_feeds_commodities_become">Become a Price
+                  Validator</a></li>
+              <li class="nav-item"><a class="nav-link" href="#section_feeds_commodities_initiate">Initiate a new Price
+                  Feed</a></li>
+              <!--<li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Yield farming</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_footer">Trading platforms</a></li>-->
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#section_feeds_reality">Price Feeds: Reality Data</a>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#section_feeds_reality_info">General information</a></li>
+              <li class="nav-item"><a class="nav-link" href="#section_feeds_reality_how_onchain">How to get Reality Data
+                  on-Chain</a></li>
+              <li class="nav-item"><a class="nav-link" href="#section_feeds_reality_how_predict">How do the Prediction
+                  Models for Reality Data Work?</a></li>
               <!--<li class="nav-item"><a class="nav-link" href="#idocs_sidebar">Yield farming</a></li>
               <li class="nav-item"><a class="nav-link" href="#idocs_footer">Trading platforms</a></li>-->
             </ul>
@@ -166,8 +191,8 @@
 		============================ -->
           <section id="section_introduction">
             <h1>Documentation</h1>
-            <h2>General Information</h2>
-            <p class="lead">Thank you so much for purchasing our item from themeforest.</p>
+            <h2>General Reading</h2>
+            <p class="lead">Thank you so much for looking into stronghold!</p>
             <hr>
             <div class="row">
               <div class="col-sm-6 col-lg-4">
@@ -213,7 +238,7 @@
 
           <hr class="divider">
 
-          <!-- Installation
+          <!-- How Hedging Works
 		============================ -->
           <section id="section_hedging_how_to">
             <h2>How Hedging Works</h2>
@@ -232,7 +257,7 @@
 
           <hr class="divider">
 
-          <!-- HTML Structure
+          <!-- What are Options
 		============================ -->
           <section id="section_hedging_what_are_options">
             <h2>What are Options</h2>
@@ -267,12 +292,36 @@
               bet on rising prices. If you compare the two options directly, they each have a specific price window in
               which they would make a higher profit.</p>
             </p>
+            <p><strong>Protective Call Option ("Collar" Option)</strong><br>
+              A Collar Option is similar to a Call Option with the difference that the payout is called at a second
+              strike price. This cap protects the Short position (Call Option seller) against unlimited loss.
+              The first strike price is called Put Strike ("Kp") and the second strike price is called Call Strike
+              ("Kc"). This is because the Collar Option can be synthetically created by 1) beeing in a Long position of
+              the Underlying and 2) beeing in a Long postion of a Put Option at price <i>Kp</i> and 3) beeing in a Short
+              position of a Call Option at price<i>Kc</i>. The price corridor, the collar, is where the hedger is
+              hedged. If the underlying price exceed <i>Kp</i> the hedger is again exposed to the market movements of
+              the underlying price. A cap somewhere is important to limit the loss of the liquidity pool. This allows
+              calculating a maximum funding needed in the pool to be bulletproof against payment defaults.
+            </p>
+
+            <div class="container">
+              <div class="d-flex justify-content-center">
+                <figure class="figure w-75">
+                  <img src="assets/images/protective_call.png" class="figure-img img-fluid rounded shadow-lg"
+                    alt="Sheep 10">
+                  <figcaption class="figure-caption text-center font-weight-bold">Payout profile of a Collar Call
+                    Option</figcaption>
+                </figure>
+              </div>
+            </div>
+
+
 
           </section>
 
           <hr class="divider">
 
-          <!-- Sass
+          <!-- What are Market Makers
 		============================ -->
           <section id="section_hedging_what_are_market_makers">
             <h2>What are Market Makers</h2>
@@ -284,7 +333,31 @@
 
           <hr class="divider">
 
-          <!-- Color Schemes
+          <!-- What is stronghold?
+		============================ -->
+          <section id="section_hedging_what_is_stronghold">
+            <h2>What is stronghold?</h2>
+            <p>stronghold is provider and market makers of cash-settled protective options. Hedgers can request option
+              quotes anytime and buy hedge products.</p>
+            <p>stronghold has a liquidity pool, that ensures option payouts at exercise date. The liquidity pool is at
+              all time over-collaterized protecting against payment defaults.
+              The over-collaterization is calculated based on the worst case payout scenario of each option reaching or
+              exceeing the upper end of the payout schedule.</p>
+
+            <div class="container">
+              <div class="d-flex justify-content-center">
+                <figure class="figure w-75">
+                  <img src="assets/images/structure.png" class="figure-img img-fluid rounded shadow-lg" alt="Sheep 10">
+                  <figcaption class="figure-caption text-center font-weight-bold">mechanics of stronghold</figcaption>
+                </figure>
+              </div>
+            </div>
+
+          </section>
+
+          <hr class="divider">
+
+          <!-- What are Liquidity Pools
 		============================ -->
           <section id="section_hedging_what_is_liquidity_pool">
             <h2>What are Liquidity Pools</h2>
@@ -297,10 +370,10 @@
 
           <hr class="divider">
 
-          <!-- Header
+          <!-- Token
 		============================ -->
-    <h2>Token</h2>   
-      <section id="section_token_general">
+          <h1>Token</h1>
+          <section id="section_token_general">
             <h2>General Information</h2>
             <p>Each ETH investor in the liquidity pool with receive $SRONG tokens that represent their stake in the
               liquidity pool.</p>
@@ -309,79 +382,247 @@
 
           <hr class="divider">
 
-          <!-- Navbar
+          <!-- Tokenomics
 		============================ -->
           <section id="section_token_tokenomics">
             <h2>Tokenomics</h2>
 
             <ul>
-              <li><strong>Mining and staking</strong>: $TRONG tokens are minted whenever an investor pays into the liquidity pool</li>
-              <li><strong>Yields</strong>: the token values are implied by dividing an investor’s number of $TRONG tokens by the total
+              <li><strong>Mining and staking</strong>: $TRONG tokens are minted whenever an investor pays into the
+                liquidity pool</li>
+              <li><strong>Yields</strong>: the token values are implied by dividing an investor’s number of $TRONG
+                tokens by the total
                 $TRONG available. The yield is the increase in this value driven by paid in premia of hedgers)</li>
-              <li><strong>Token burns</strong>: whenever an investor gets cashed out with ETH from the pool, their $TRONG tokens are
+              <li><strong>Token burns</strong>: whenever an investor gets cashed out with ETH from the pool, their
+                $TRONG tokens are
                 burned</li>
-              <li><strong>Unlimited supplies</strong>: there is no limit in $STRONG supply, but a strong supply will increase the
-                over-collaterization of the pool leading to lower premia and thus, lower yields. This holds also vice
-                versa, creating a supply/demand equilibrium at the ideal risk-evaluated premia.</li>
-              <li><strong>Token allocations and vesting periods</strong>: At issuance, 1,000 of $STRONG tokens representing 1,000 ETH are
+              <li><strong>Unlimited supplies</strong>: there is no limit in $STRONG supply, but a strong supply will
+                increase the
+                over-collaterization of the pool leading to lower calculated premia and thus, lower yields. This holds
+                also vice
+                versa: if the liquidity pool is at or close to the calculated maximum payout and has little or non over
+                collateralization, then premia are higher, giving more incentive to invest into the pool and increasing
+                the over-collateralisation. Creating a supply/demand equilibrium at the ideal risk-evaluated premia.
+              </li>
+              <li><strong>Token allocations and vesting periods</strong>: At issuance, 1,000 of $STRONG tokens
+                representing 1,000 ETH are
                 allocated to stronghold platform investors and creators.</li>
             </ul>
+
+            <p></p>
+
+            <div class="container">
+              <div class="d-flex justify-content-center">
+                <figure class="figure w-75">
+                  <img src="assets/images/tokenomics.png" class="figure-img img-fluid rounded shadow-lg" alt="Sheep 10">
+                  <figcaption class="figure-caption text-center font-weight-bold">$TRONG investment incentivation
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
 
           </section>
 
           <hr class="divider">
 
-          
+          <!-- Price Feeds for Commodities
+		============================ -->
+          <h1 id="section_feeds_commodities">Price Feeds for Commodities</h1>
+          <section id="section_feeds_commodities_info">
+            <h2>General Information</h2>
+            <p>Prices from underlying commodities are delivered by decentralized oracles, such as Flux Protocol and
+              chainlink.
+              These platform ensure price feeds that are validated by a multiple of independent nodes. In addition the
+              price source API names are publicly visible to ensure transparency back to the ultimate data source. These
+              sources could be well known institutions or foundations.
+            </p>
 
-          <!-- Content
+          </section>
+
+          <hr class="divider">
+
+          <!-- Become a Price Validator
+		============================ -->
+          <section id="section_feeds_commodities_become">
+            <h2>Become a Price Validator</h2>
+
+            <p>Price deliverer and validators are compensated with a commission for each data point they deliver or
+              validate. This data feed network is outside the scope of stronghold, even though stronghold developer team
+              closely work together with the data provider networks.
+              In order to become a deliverer or validator, you can reach out to stronghold here. Stronghold does not
+              need to know your identity but the developer team can help setting up the validator node together with
+              Flux or chainlink.
+            </p>
+
+          </section>
+
+          <hr class="divider">
+
+          <!-- Initiate a New Price Feed
+		============================ -->
+          <section id="section_feeds_commodities_initiate">
+            <h2>Initiate a New Price Feed</h2>
+
+            <p>Anyone can set up new underlying price feeds. The standard process would be as follow:
+
+            <ol>
+              <li>Propose a new underlying price to stronghold, e.g. white sugar price Germany</li>
+              <li>Create a liquidity pool for this underlying</li>
+              <li>Fund the liquidity pool with minimum ETH worth EUR 20,000</li>
+              <li>Mint the equivalent of $TRONG tokens</li>
+              <li>List the token on any DEX by providing a part of the EUR 20,000 worth tokens into ETH<->$TRONG
+                  liquidity pools</li>
+              <li>Start selling first options and try to increase pool value from time to time by receiving fees</li>
+            </ol>
+            </p>
+
+          </section>
+
+          <hr class="divider">
+
+
+          <!-- Price Feeds for Reality Data
+		============================ -->
+          <h1 id="section_feeds_reality">Price Feeds for Reality Data</h1>
+          <section id="section_feeds_reality_info">
+            <h2>General Information</h2>
+            <p>Any underlying, like a stock or a commodity, has a time series of prices that behave like a random walk
+              with drift, and a specific statistical probability distribution. Reality data, such as “the current
+              temperature in London” behaves similar, though, often with specific behaviors, such as strong cyclicality,
+              stronger bias to fat tails or stronger auto-correlation.</p>
+            <p>Taking reality data as underlying for an option would not allow to use classic valuation methodologies
+              such as Black & Scholes. For example the temperature time series is too cyclical to be valued with Black &
+              Scholes, that takes as input a probability distribution, mostly the Normal Distribution.</p>
+            <p>Still, taking all the attributes and empirical data of reality data time series into account, discrete
+              time series models such as Cox, Ross Rosenstein, can be modified to create decent predictions. This allows
+              stronghold to provide Options on any kind of reality data time series as if it was a stock on the stock
+              exchange. Examples could be to hedge against rainfall as a restaurant, against heavy sun as a farmer,
+              against delivery delays due to traffic jams, and many more.</p>
+
+          </section>
+
+          <hr class="divider">
+
+          <!-- How to get Reality Data On-Chain
+		============================ -->
+          <section id="section_feeds_reality_how_onchain">
+            <h2>How to get Reality Data On-Chain</h2>
+
+            <p>The data feed creation and networks that source and validate these data, so-called Oracles, are one of
+              the most critical part of crypto, given they link the real world with the chain.
+              Problems of Oracles
+              There is a lot of literature online explaining the Oracle problems and how to solve them. Therefore we
+              don’t want to further dive into this topic but rather refer to some readings:
+
+            <ul>
+              <li><a href="https://blockpit.io/en/blog/how-to-solve-the-oracle-problem">Blockpit</a></li>
+              <li><a href="https://blog.chain.link/what-is-the-blockchain-oracle-problem/">Chainlink</a></li>
+            </ul>
+            </p>
+
+          </section>
+
+          <hr class="divider">
+
+          <!-- How to get Reality Data On-Chain
+		============================ -->
+          <section id="section_feeds_reality_how_onchain">
+            <h2>How do the Prediction Models for Reality Data Work?</h2>
+
+            <p>stronghold uses a dataset of historic data with constant enrichment of new data points and
+              state-of-the-art preduction models to provide fair valuation the options. Spme of the methodologies are
+              listed below:
+
+            <ul>
+              <li><a
+                  href="https://iri.columbia.edu/~deo/insurance_class_reading/Rainfall%20Modeling%20and%20Simulation.pdf">Rainfall
+                  Prediction (Columnbia University)</a></li>
+              <li><a href="https://www.geeksforgeeks.org/ml-rainfall-prediction-using-linear-regression/">Weather
+                  Prediction by GeekForGeeks</a></li>
+              <!--<li><a href="https://www.climatefinancelab.org/project/climate-risk-crop-insurance/">Chainlink</a></li>-->
+            </ul>
+            </p>
+
+            <div class="container">
+              <div class="d-flex justify-content-center">
+                <figure class="figure w-75">
+                  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20190610231235/trends.png"
+                    class="figure-img img-fluid rounded shadow-lg" alt="Sheep 10">
+                  <figcaption class="figure-caption text-center font-weight-bold">Example of Rainfall prediction models
+                    by Geeksforgeeks (<a
+                      href="https://www.geeksforgeeks.org/ml-rainfall-prediction-using-linear-regression/">click here to
+                      go to source</a>)</figcaption>
+                </figure>
+              </div>
+            </div>
+
+          </section>
+
+          <hr class="divider">
+
+          <!-- API
 		============================ -->
           <section id="section_api">
             <h1>API</h1>
-            <h2>Content</h2>
-            <p class="lead mb-5">Documentation and examples for displaying typography, code, table, image and video and
-              more..</p>
+            <h2>General Information</h2>
+            <p>stronghold is developing managed wallets on proprietary, centralized server to facilitate interacting
+              with the stronghold contracts on the Etherium mainnet.
+              Thus, stronghold will provide an API that allows to link a credit card to a managed wallet and offers a
+              list of endpoints such as:</p>
+
+            <ul>
+              <li><code>/authenticate</code>: authentication endpoint using a bearer token</li>
+              <li><code>/hedge</code>: a contract to have the option to buy a product in the future for a fixed price
+              <li><code>/fundWallet</code>: fund own wallet to be able to buy options
+              <li><code>/getQuote</code>: get prices of a specific option </li>
+              <li><code>/exercise</code>: exercise an option in order to get a payout if the current underlying price is
+                above the Put Strike of the Collar Option</li>
+            </ul>
+
+
+
           </section>
 
-    <!-- Footer
+          <!-- Footer
   ============================ -->
-    <footer id="footer" class="section bg-dark footer-text-light">
-      <div class="container">
-        <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
-          <li><a data-toggle="tooltip" href="https://twitter.com/harnishdesign/" target="_blank" title=""
-              data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
-          <li><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title=""
-              data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title=""
-              data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
-          <li><a data-toggle="tooltip" href="http://www.github.com/" target="_blank" title=""
-              data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
-        </ul>
-        <p class="text-center">Copyright &copy; 2020 <a
-            href="https://christophdrayss.github.io/stronghold/">stronghold</a>. All Rights
-          Reserved.</p>
-      </div>
-    </footer>
-    <!-- Footer end -->
+          <footer id="footer" class="section bg-dark footer-text-light">
+            <div class="container">
+              <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+                <li><a data-toggle="tooltip" href="https://twitter.com/harnishdesign/" target="_blank" title=""
+                    data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title=""
+                    data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title=""
+                    data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+                <li><a data-toggle="tooltip" href="http://www.github.com/" target="_blank" title=""
+                    data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+              </ul>
+              <p class="text-center">Copyright &copy; 2020 <a
+                  href="https://christophdrayss.github.io/stronghold/">stronghold</a>. All Rights
+                Reserved.</p>
+            </div>
+          </footer>
+          <!-- Footer end -->
 
-  </div>
-  <!-- Document Wrapper end -->
+        </div>
+        <!-- Document Wrapper end -->
 
-  <!-- Back To Top -->
-  <a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i
-      class="fa fa-chevron-up"></i></a>
+        <!-- Back To Top -->
+        <a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i
+            class="fa fa-chevron-up"></i></a>
 
-  <!-- JavaScript
+        <!-- JavaScript
 ============================ -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- Highlight JS -->
-  <script src="assets/vendor/highlight.js/highlight.min.js"></script>
-  <!-- Easing -->
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <!-- Magnific Popup -->
-  <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-  <!-- Custom Script -->
-  <script src="assets/js/theme.js"></script>
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Highlight JS -->
+        <script src="assets/vendor/highlight.js/highlight.min.js"></script>
+        <!-- Easing -->
+        <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+        <!-- Magnific Popup -->
+        <script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <!-- Custom Script -->
+        <script src="assets/js/theme.js"></script>
 </body>
 
 </html>
